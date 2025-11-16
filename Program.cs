@@ -1,4 +1,6 @@
 using PsCoreDemo.Repository;
+using PsCoreDemo.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,10 @@ builder.Services.AddScoped<ICardRepository, MockCardRepository>();
 
 builder.Services.AddControllersWithViews();
 
+// Added framework for PostgreSQL database connection, can have multiple DbContexts, reads connection string from appsettings.json
+builder.Services.AddDbContext<MarketShopDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MarketShopDbContextConnection"))
+);
 
 var app = builder.Build();
 
