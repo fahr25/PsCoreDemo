@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     
+    <!-- At compile time it allows the most common using directives to be included automatically in every file in the project. -->
+    <!-- This reduces the need for explicit using directives and helps to keep the code cleaner and more concise. -->
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
