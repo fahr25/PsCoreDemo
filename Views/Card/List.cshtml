@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PsCoreDemo.Models.Card>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>@ViewBag.CurrentCategory</h1>
+    <ul>
+        @foreach (var card in Model)
+        {
+            <li>
+                <h2>@card.Name</h2>
+                <p>@card.Description</p>
+                <img src="@card.Image" alt="@card.Name" />
+                <p>Points: @card.Points</p>
+            </li>
+        }
+    </ul>
+</body>
+</html>
