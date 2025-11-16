@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PsCoreDemo.Models.Card>
+﻿@model PsCoreDemo.ViewModels.CardListViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>@ViewBag.CurrentCategory</h1>
+    <h1>@Model.CurrentCategory</h1>
     <ul>
-        @foreach (var card in Model)
+        @foreach (var card in Model.Cards)
         {
             <li>
                 <h2>@card.Name</h2>

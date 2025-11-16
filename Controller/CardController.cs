@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using PsCoreDemo.Repository;   
+using PsCoreDemo.Repository; 
+using PsCoreDemo.ViewModels;
 
 namespace PsCoreDemo.Controllers
 {
@@ -21,8 +22,16 @@ namespace PsCoreDemo.Controllers
         public IActionResult List()
         {
             // ViewBag is a dynamic object that provides a way to pass data from the controller to the view.
-            ViewBag.CurrentCategory = "Birthday Cards";
-            return View(_cardRepository.GetAllCards());
+            // ViewBag.CurrentCategory = "Birthday Cards";
+            // return View(_cardRepository.GetAllCards());
+
+            CardListViewModel cardListViewModel = new CardListViewModel()
+            {
+                Cards = _cardRepository.GetAllCards(),
+                CurrentCategory = "Birthday Cards"
+            };
+
+            return View(cardListViewModel);
         }
 
     }   
