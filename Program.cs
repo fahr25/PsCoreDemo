@@ -1,3 +1,5 @@
+using PsCoreDemo.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddTransient - creates a new instance every time it is requested
 // builder.Services.AddSingleton - creates a single instance for the entire application lifetime
 
-builder.Services.AddScoped<ICatergoryRepository, MockCategoryRepository>();
-builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+builder.Services.AddScoped<ICardRepository, MockCardRepository>();
 
 builder.Services.AddControllersWithViews();
 

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-
-
+using PsCoreDemo.Models;
 
 namespace PsCoreDemo.Repository
 {
