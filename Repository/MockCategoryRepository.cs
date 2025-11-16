@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using PsCoreDemo.Models;
 
-/// <summary>
-/// Summary description for Class1
-/// </summary>
-public class MockCategoryRepository : ICategoryRepository
+namespace PsCoreDemo.Repository
 {
-	public IEnumerable<Category> GetAllCategories()
+	/// <summary>
+	/// Mock implementation of <see cref="ICategoryRepository"/> for testing/data seeding
+	/// </summary>
+	public class MockCategoryRepository : ICategoryRepository
 	{
-		return new List<Category>
+		public IEnumerable<Category> GetAllCategories()
 		{
-			new Category { Id = 1, Name = "Birthday Card" },
-			new Category { Id = 2, Name = "Book" },
-			new Category { Id = 3, Name = "Toys" }
-		};
-    }>>
+			return new List<Category>
+			{
+				new Category { Id = 1, Name = "Birthday Card" },
+				new Category { Id = 2, Name = "Book" },
+				new Category { Id = 3, Name = "Toys" }
+			};
+		}
+	}
 }
