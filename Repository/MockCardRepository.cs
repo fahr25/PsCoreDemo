@@ -83,6 +83,39 @@ namespace PsCoreDemo.Repository
                     },
                     Notes = "Great for formal occasions."
                 }
+                ,
+                new Card
+                {
+                    Id = 5,
+                    Name = "Pop-Up Surprise",
+                    Description = "Interactive pop-up card with 3D elements and a pull-tab surprise.",
+                    Image = "/images/cards/popup_surprise.svg",
+                    Points = 3,
+                    Inventory = 30,
+                    MinAge = 6,
+                    MaxAge = 99,
+                    Categories = new List<Category>
+                    {
+                        new Category { Id = 1, Name = "Birthday Card" }
+                    },
+                    Notes = "Fragile – keep flat."
+                },
+                new Card
+                {
+                    Id = 6,
+                    Name = "Thank You Watercolor",
+                    Description = "Soft watercolor thank-you card with hand-painted look and subtle gold accents.",
+                    Image = "/images/cards/thank_you_watercolor.svg",
+                    Points = 1,
+                    Inventory = 85,
+                    MinAge = 0,
+                    MaxAge = 99,
+                    Categories = new List<Category>
+                    {
+                        new Category { Id = 2, Name = "Book" }
+                    },
+                    Notes = "Pairs well with ribbon or small gifts."
+                }
             };
         }
     }
