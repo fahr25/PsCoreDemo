@@ -21,12 +21,14 @@ namespace PsCoreDemo.Controllers
         // Action method to handle HTTP GET requests for listing all birthday cards.
         public IActionResult List()
         {
-            // ViewBag is a dynamic object that provides a way to pass data from the controller to the view.
-            // ViewBag.CurrentCategory = "Birthday Cards";
-            // return View(_cardRepository.GetAllCards());
-
+            // Create an instance of CardListViewModel to encapsulate the data for the view.
             CardListViewModel cardListViewModel = new CardListViewModel()
             {
+                // This example uses mock data from mock card repository.
+                // Cards = _cardRepository.GetAllCards(),
+                // CurrentCategory = "Birthday Cards"
+
+                // This example uses data from the database via the CardRepository.
                 Cards = _cardRepository.GetAllCards(),
                 CurrentCategory = "Birthday Cards"
             };

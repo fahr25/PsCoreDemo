@@ -1,0 +1,21 @@
+using System;
+using Microsoft.EntityFrameworkCore;
+using PsCoreDemo.Models;
+
+namespace PsCoreDemo.Repository;
+
+public class CardRepository : ICardRepository
+{
+    private readonly MarketShopDbContext _marketShopDbContext;
+    
+    public CardRepository(MarketShopDbContext marketShopDbContext)
+    {
+        _marketShopDbContext = marketShopDbContext;
+    }
+
+    public IEnumerable<Card> GetAllCards()
+    {
+        // Return cards ordered by Name descending
+        return _marketShopDbContext.Cards.OrderByDescending(c => c.Name);
+    }
+}

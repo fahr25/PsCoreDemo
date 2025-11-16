@@ -5,16 +5,20 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// builder.Services.AddScoped - creates single instance per request and will be disposed at the end of the request
-// builder.Services.AddTransient - creates a new instance every time it is requested
-// builder.Services.AddSingleton - creates a single instance for the entire application lifetime
+// builder.Services.AddScoped - ** Use this the most ** 
+// creates single instance per request and will be disposed at the end of the request 
 
-builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-builder.Services.AddScoped<ICardRepository, MockCardRepository>();
+// Services in line 12 and 13 are for mock repositories for testing
+// builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+// builder.Services.AddScoped<ICardRepository, MockCardRepository>();
+
+// Services in line 16 and 17 are for real database repositories
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICardRepository, CardRepository>();
 
 builder.Services.AddControllersWithViews();
 
-// Added framework for PostgreSQL database connection, can have multiple DbContexts, reads connection string from appsettings.json
+// PostgreSQL database connection, can have multiple DbContexts, reads connection string from appsettings.json
 builder.Services.AddDbContext<MarketShopDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("MarketShopDbContextConnection"))
 );
