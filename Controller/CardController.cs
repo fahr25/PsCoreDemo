@@ -24,16 +24,22 @@ namespace PsCoreDemo.Controllers
             // Create an instance of CardListViewModel to encapsulate the data for the view.
             CardListViewModel cardListViewModel = new CardListViewModel()
             {
-                // This example uses mock data from mock card repository.
-                // Cards = _cardRepository.GetAllCards(),
-                // CurrentCategory = "Birthday Cards"
-
                 // This example uses data from the database via the CardRepository.
                 Cards = _cardRepository.GetAllCards(),
                 CurrentCategory = "Birthday Cards"
             };
 
             return View(cardListViewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var card = _cardRepository.GetCardById(id);
+            if (card == null)
+            {
+                return NotFound();
+            }
+            return View(card);
         }
 
     }   

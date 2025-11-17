@@ -1,8 +1,6 @@
 using PsCoreDemo.Data;
 using PsCoreDemo.Models;
 
-using Microsoft.EntityFrameworkCore;
-
 namespace PsCoreDemo.Repository;
 
 public class CardRepository : ICardRepository
@@ -19,4 +17,13 @@ public class CardRepository : ICardRepository
         // Return cards ordered by Name descending
         return _marketShopDbContext.Cards.OrderByDescending(c => c.Name);
     }
+
+    public Card GetCardById(int cardId)
+    {
+        var card = _marketShopDbContext.Cards.FirstOrDefault(c => c.Id == cardId);
+        if (card == null)
+            throw new InvalidOperationException($"Card with Id {cardId} not found.");
+        return card;
+    }
+    
 }

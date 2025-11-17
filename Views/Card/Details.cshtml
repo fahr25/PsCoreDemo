@@ -1,0 +1,45 @@
+@model PsCoreDemo.Models.Card
+
+<h3 class="my-5">
+    @Model.Name
+</h3>
+
+<div class="container mb-5 bg-light p-4 rounded">
+    <div class="row gx-5">
+        <div class="col-md-5">
+            <img src="@Model.Image" alt="@Model.Name" class="img-fluid" />
+        </div>
+
+        <div class="col-md-7 d-flex flex-column">
+            <div>
+                <h4>@Model.Points Points</h4>
+                <p>@Model.Description</p>
+                <p><strong>Inventory:</strong> @Model.Inventory</p>
+                <p><strong>Age Range:</strong> @Model.MinAge - @Model.MaxAge years</p>
+                <p><strong>Categories:</strong>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <span class="badge bg-secondary me-1">@category.Name</span>
+                    }
+                </p>
+                <p><strong>Notes:</strong> @Model.Notes</p>
+            </div>
+
+            <div class="addToCart mt-auto">
+                <p class="btn btn-unique btn-lg w-50">Add to Cart</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-unique {
+        background-color: #ff6b35;
+        border-color: #ff6b35;
+        color: white;
+    }
+    .btn-unique:hover {
+        background-color: #e55a2b;
+        border-color: #e55a2b;
+    }
+</style>

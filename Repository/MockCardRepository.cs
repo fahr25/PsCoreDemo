@@ -118,5 +118,10 @@ namespace PsCoreDemo.Repository
                 }
             };
         }
+
+        public Card GetCardById(int cardId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

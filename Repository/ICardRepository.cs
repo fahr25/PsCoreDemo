@@ -11,5 +11,8 @@ namespace PsCoreDemo.Repository
 
         IEnumerable<Card> GetAllCards();
 
+        Card GetCardById(int cardId);
+
     }
+
 }
