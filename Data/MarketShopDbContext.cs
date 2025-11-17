@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace PsCoreDemo.Models;
+using PsCoreDemo.Models;
+
+namespace PsCoreDemo.Data;
 
 public class MarketShopDbContext : DbContext
 {

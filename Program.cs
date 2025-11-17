@@ -1,6 +1,8 @@
-using PsCoreDemo.Repository;
-using PsCoreDemo.Models;
 using Microsoft.EntityFrameworkCore;
+
+using PsCoreDemo.Data;
+using PsCoreDemo.Repository;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,14 @@ app.UseStaticFiles();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+}
+
+// Seed the database with initial data
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<MarketShopDbContext>();
+    MarketSeedDbInitializer.Seed(context);
 }
 
 

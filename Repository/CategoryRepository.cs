@@ -1,6 +1,5 @@
-using System;
 using PsCoreDemo.Models;
-using Microsoft.EntityFrameworkCore;
+using PsCoreDemo.Data;
 
 namespace PsCoreDemo.Repository;
 

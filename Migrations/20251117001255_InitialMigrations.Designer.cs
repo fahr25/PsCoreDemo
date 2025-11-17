@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using PsCoreDemo.Models;
+using PsCoreDemo.Data;
 
 #nullable disable
 
 namespace PsCoreDemo.Migrations
 {
     [DbContext(typeof(MarketShopDbContext))]
-    [Migration("20251116231917_InitialMigrations")]
+    [Migration("20251117001255_InitialMigrations")]
     partial class InitialMigrations
     {
         /// <inheritdoc />
