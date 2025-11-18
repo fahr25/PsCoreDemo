@@ -14,6 +14,9 @@ public class MarketShopDbContext : DbContext
     // Expose DbSet properties for each entity to be mapped to database tables
     // Makes it possible to query and save instances of these entities 
     public DbSet<Card> Cards { get; set; }
+
     public DbSet<Category> Categories { get; set; }
+
+    public DbSet<Book> Books { get; set; }
 
 }

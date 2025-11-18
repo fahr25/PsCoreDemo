@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // creates single instance per request and will be disposed at the end of the request 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICardRepository, CardRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddControllersWithViews();
 

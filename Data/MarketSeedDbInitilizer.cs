@@ -1,5 +1,5 @@
 using PsCoreDemo.Models;
-using System.Linq; // Add this if not already present
+using System.Linq;
 
 namespace PsCoreDemo.Data
 {
@@ -112,6 +112,160 @@ namespace PsCoreDemo.Data
                 };
 
                 context.Cards.AddRange(cards);
+                context.SaveChanges();
+            }
+
+            // Seed books if none exist
+            if (!context.Books.Any())
+            {
+                // Get existing categories to link to books
+                var existingCategories = context.Categories.ToList();
+
+                var books = new List<Book>
+                {
+                    new Book
+                    {
+                        Id = 1,
+                        Name = "The Great Adventure",
+                        Description = "A thrilling tale of exploration and discovery in a fantasy world.",
+                        Image = "/images/books/book1.png",
+                        Points = 10,
+                        Inventory = 50,
+                        MinAge = 8,
+                        MaxAge = 99,
+                        Author = "Jane Doe",
+                        Genre = "Fantasy",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList() // Link to "Book"
+                    },
+                    new Book
+                    {
+                        Id = 2,
+                        Name = "Mystery of the Lost City",
+                        Description = "Solve puzzles and uncover secrets in this engaging mystery novel.",
+                        Image = "/images/books/book2.png",
+                        Points = 15,
+                        Inventory = 30,
+                        MinAge = 10,
+                        MaxAge = 99,
+                        Author = "John Smith",
+                        Genre = "Mystery",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 3,
+                        Name = "Coding for Kids",
+                        Description = "An introductory guide to programming with fun projects.",
+                        Image = "/images/books/book3.png",
+                        Points = 20,
+                        Inventory = 75,
+                        MinAge = 6,
+                        MaxAge = 14,
+                        Author = "Tech Guru",
+                        Genre = "Educational",
+                        Categories = existingCategories.Where(c => c.Id == 2 || c.Id == 3).ToList() // Link to "Book" and "Toys"
+                    },
+                    new Book
+                    {
+                        Id = 4,
+                        Name = "Space Explorers",
+                        Description = "Journey through the stars with astronauts and aliens.",
+                        Image = "/images/books/book4.png",
+                        Points = 12,
+                        Inventory = 40,
+                        MinAge = 5,
+                        MaxAge = 99,
+                        Author = "Astronaut Alice",
+                        Genre = "Science Fiction",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 5,
+                        Name = "Animal Friends",
+                        Description = "Heartwarming stories about animals and their adventures.",
+                        Image = "/images/books/book5.png",
+                        Points = 8,
+                        Inventory = 100,
+                        MinAge = 3,
+                        MaxAge = 10,
+                        Author = "Nature Lover",
+                        Genre = "Children's",
+                        Categories = existingCategories.Where(c => c.Id == 2 || c.Id == 3).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 6,
+                        Name = "History of Heroes",
+                        Description = "Learn about legendary figures and their epic deeds.",
+                        Image = "/images/books/book6.png",
+                        Points = 18,
+                        Inventory = 25,
+                        MinAge = 12,
+                        MaxAge = 99,
+                        Author = "Historian Hank",
+                        Genre = "History",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 7,
+                        Name = "Magical Tales",
+                        Description = "Enchanting stories filled with magic and wonder.",
+                        Image = "/images/books/book7.png",
+                        Points = 14,
+                        Inventory = 60,
+                        MinAge = 7,
+                        MaxAge = 99,
+                        Author = "Wizard Wendy",
+                        Genre = "Fantasy",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 8,
+                        Name = "Eco-Warriors",
+                        Description = "Inspiring tales of environmental heroes saving the planet.",
+                        Image = "/images/books/book8.png",
+                        Points = 16,
+                        Inventory = 35,
+                        MinAge = 9,
+                        MaxAge = 99,
+                        Author = "Green Guardian",
+                        Genre = "Non-Fiction",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 9,
+                        Name = "Puzzle Palace",
+                        Description = "A collection of brain-teasing puzzles and riddles.",
+                        Image = "/images/books/book9.png",
+                        Points = 11,
+                        Inventory = 80,
+                        MinAge = 6,
+                        MaxAge = 99,
+                        Author = "Puzzle Master",
+                        Genre = "Puzzle",
+                        Categories = existingCategories.Where(c => c.Id == 2 || c.Id == 3).ToList()
+                    },
+                    new Book
+                    {
+                        Id = 10,
+                        Name = "Dream Big",
+                        Description = "Motivational stories to inspire young dreamers.",
+                        Image = "/images/books/book10.png",
+                        Points = 13,
+                        Inventory = 45,
+                        MinAge = 4,
+                        MaxAge = 99,
+                        Author = "Dreamer Dave",
+                        Genre = "Inspirational",
+                        Categories = existingCategories.Where(c => c.Id == 2).ToList()
+                    }
+                };
+
+                context.Books.AddRange(books);
                 context.SaveChanges();
             }
         }
