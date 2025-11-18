@@ -1,4 +1,4 @@
-@model BookListViewModel
+@model IEnumerable<Book>
 
   
 <div class="container py-5">
@@ -7,7 +7,7 @@
       @* <h3>@Model.CurrentCategory</h3>
       <p class="text-muted">Explore our collection of @Model.CurrentCategory cards.</p> *@
 
-      @foreach (var book in Model.Books)
+      @foreach (var book in Model)
       {
          <div class="col-6 col-lg-3 mb-4">
             <div class="card shadow border-0 h-100">

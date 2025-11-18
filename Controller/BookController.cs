@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using PsCoreDemo.Repository;
-using PsCoreDemo.Models;
-using PsCoreDemo.ViewModels;
 
 namespace PsCoreDemo.Controllers
 {
@@ -14,14 +12,15 @@ namespace PsCoreDemo.Controllers
             _bookRepository = bookRepository;
         }
 
-        public IActionResult GetAllBooks()
+        public IActionResult List()
         {
-            BookListViewModel bookListViewModel = new BookListViewModel
+            var books = _bookRepository.GetAllBooks();
+            if (books == null || !books.Any())
             {
-                Books = _bookRepository.GetAllBooks()
-            };
-
-            return View(bookListViewModel);
+                // Optionally, show a "No books found" view or message
+                ViewBag.Message = "No books available.";
+            }
+            return View(books);
         }
 
     }
