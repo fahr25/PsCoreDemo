@@ -18,6 +18,6 @@ public abstract class Product
     public int MinAge { get; set; }
     public int MaxAge { get; set; }
 
-    // A list like ["Games", "Toys"] or ["Electronics", "Books"]
-    public List<Category> Categories { get; set; } = new();
+    [Required]
+    public Category? Category { get; set; }
 }

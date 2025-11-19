@@ -1,17 +1,17 @@
-@model IEnumerable<Book>
+@model BookListViewModel
 
   
 <div class="container py-5">
    <div class="row mb-lg-4">
 
-      @* <h3>@Model.CurrentCategory</h3>
-      <p class="text-muted">Explore our collection of @Model.CurrentCategory cards.</p> *@
+      <h3>@Model.CurrentCategory</h3>
+      <p class="text-muted">Explore our collection of @Model.CurrentCategory cards.</p>
 
       @foreach (var book in Model)
       {
          <div class="col-6 col-lg-3 mb-4">
             <div class="card shadow border-0 h-100">
-               <img src="@book.Image" class="card-img-top" alt="@book.Name" style="height: 200px; object-fit: cover;" />
+               <img src="@book.Image" class="card-img-top" alt="@book.Name" style="object-fit: cover;" />
 
                <div class="card-body p-4">
                   <div class="lc-block text-center mb-3">
